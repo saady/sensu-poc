@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: sensu-client
+spec:
+  template:
+    metadata:
+      labels:
+        name: sensu-client
+    spec:
+      containers:
+        - securityContext:
+            privileged: true
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          image: mjp81/sensu-client
+          name: sensu-client
+          volumeMounts:
+          - mountPath: /var/run/docker.sock
+            name: docker
+      volumes:
+      - name: docker
+        hostPath:
+          path: /var/run/docker.sock

@@ -1,0 +1,15 @@
+{
+  "client": {
+    "name": "POD_NAME",
+    "address": "POD_IP_ADDRESS",
+    "environment": "production",
+    "subscriptions": [
+      "dev",
+      "ubuntu"
+    ],
+    "socket": {
+      "bind": "127.0.0.1",
+      "port": 3030
+    }
+  }
+}

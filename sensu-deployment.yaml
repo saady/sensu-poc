@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sensu-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sensu-server
+    spec:
+      containers:
+      - name: sensu-server
+        image: mjp81/sensu-server
+        ports:
+        - containerPort: 4567

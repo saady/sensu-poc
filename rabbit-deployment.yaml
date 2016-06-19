@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rabbit-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rabbit
+    spec:
+      containers:
+      - name: rabbitmq-server
+        image: rabbitmq:3-management
+        env:
+          - name: RABBITMQ_NODENAME
+            value: rabbit-sensu
+        ports:
+        - containerPort: 5672
+        - containerPort: 15672

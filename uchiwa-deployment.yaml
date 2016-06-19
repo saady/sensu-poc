@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: uchiwa-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: uchiwa-server
+    spec:
+      containers:
+      - name: uchiwa
+        image: mjp81/uchiwa
+        ports:
+        - containerPort: 3000
