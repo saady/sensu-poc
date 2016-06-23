@@ -1,11 +1,10 @@
 {
   "client": {
-    "name": "POD_NAME",
-    "address": "IP_ADDRESS",
+    "name": "kubernetes-checker",
+    "address": "POD_IP",
     "environment": "development",
     "subscriptions": [
-      "development",
-      "kubernetes"
+      "kubernetes-host"
     ],
     "socket": {
       "bind": "127.0.0.1",

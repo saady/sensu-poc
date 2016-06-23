@@ -1,11 +1,10 @@
 {
   "client": {
-    "name": "POD_NAME",
-    "address": "IP_ADDRESS",
+    "name": "aws-checker",
+    "address": "POD_IP",
     "environment": "development",
     "subscriptions": [
-      "development",
-      "kubernetes"
+      "aws"
     ],
     "socket": {
       "bind": "127.0.0.1",

@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: aws-checker
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: aws-checker
+    spec:
+      containers:
+        - env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: sensu-aws-access
+                  key: sensu-aws-access-key
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sensu-aws-access
+                  key: sensu-aws-access-secret
+            - name: AWS_DEFAULT_REGION
+              value: eu-west-1
+          image: mjp81/aws-checker
+          name: aws-checker

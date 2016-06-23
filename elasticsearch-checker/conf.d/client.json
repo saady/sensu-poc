@@ -1,11 +1,10 @@
 {
   "client": {
-    "name": "POD_NAME",
-    "address": "IP_ADDRESS",
+    "name": "elasticsearch-checker",
+    "address": "POD_IP",
     "environment": "development",
     "subscriptions": [
-      "development",
-      "kubernetes"
+      "elasticsearch"
     ],
     "socket": {
       "bind": "127.0.0.1",

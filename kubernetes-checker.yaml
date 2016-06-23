@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kubernetes-checker
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: kubernetes-checker
+    spec:
+      containers:
+        - env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          image: mjp81/sensu-client-kubernetes-checker
+          name: kubernetes-checker

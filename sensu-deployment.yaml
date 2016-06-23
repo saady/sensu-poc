@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: sensu-server
-        image: mjp81/sensu-server
+        image: mjp81/sensu-server-v2
         ports:
         - containerPort: 4567
