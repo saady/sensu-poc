@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        name: logstash
+        app: logstash
     spec:
       containers:
         - env:
