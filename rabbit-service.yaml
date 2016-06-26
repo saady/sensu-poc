@@ -4,14 +4,10 @@ metadata:
   name: rabbit-service
 spec:
   ports:
-  - port: 15672
-    name: rabbit-management
-    targetPort: 15672
-    protocol: TCP
   - port: 5672
     name: rabbit
     targetPort: 5672
     protocol: TCP
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: rabbit

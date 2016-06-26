@@ -1,13 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: elasticsearch-checker
+  name: logstash
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: elasticsearch-checker
+        name: logstash
     spec:
       containers:
         - env:
@@ -19,5 +19,5 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-          image: mjp81/elasticsearch-checker
-          name: elasticsearch-checker
+          image: mjp81/sensu-logstash
+          name: logstash
